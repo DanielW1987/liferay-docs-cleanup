@@ -1,4 +1,4 @@
 Bundle-Name: admin-tools
-Bundle-SymbolicName: com.spheos.portlet.admintools
+Bundle-SymbolicName: com.spheos.portlet.admin-tools
 Bundle-Version: 1.0.0
 Export-Package: com.spheos.portlet.admintools.constants
