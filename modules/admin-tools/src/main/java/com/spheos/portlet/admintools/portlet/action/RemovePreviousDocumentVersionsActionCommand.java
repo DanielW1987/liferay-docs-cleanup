@@ -18,23 +18,21 @@ import javax.portlet.ActionResponse;
         immediate = true,
         property = {
                 "javax.portlet.name=" + AdminToolsPortletKeys.PORTLET_NAME,
-                "mvc.command.name=" + MvcCommandNames.DELETE_UNUSED_DOCUMENTS
+                "mvc.command.name=" + MvcCommandNames.REMOVE_PREVIOUS_DOCUMENT_VERSIONS
         },
         service = MVCActionCommand.class
 )
-public class DeleteUnusedDocumentsActionCommand extends BaseMVCActionCommand {
+public class RemovePreviousDocumentVersionsActionCommand extends BaseMVCActionCommand {
 
-    private static final Log log = LogFactoryUtil.getLog(DeleteUnusedDocumentsActionCommand.class);
+    private static final Log log = LogFactoryUtil.getLog(RemovePreviousDocumentVersionsActionCommand.class);
 
     @Reference
     private DocumentsAndMediaService documentsAndMediaService;
 
     @Override
     protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) {
-        // ToDo: Repository Id ermitteln
-        long repositoryId = 20142;
         try {
-            documentsAndMediaService.removePreviousVersions(repositoryId);
+            documentsAndMediaService.removePreviousVersions();
         }
         catch (PortalException pe) {
             log.error("Error during removing previous versions of documents and media: " + pe.getMessage(), pe);

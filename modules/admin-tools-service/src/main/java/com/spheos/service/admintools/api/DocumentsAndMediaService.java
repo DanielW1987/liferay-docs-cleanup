@@ -4,5 +4,5 @@ import com.liferay.portal.kernel.exception.PortalException;
 
 public interface DocumentsAndMediaService {
 
-    void removePreviousVersions(Long repositoryId) throws PortalException;
+    void removePreviousVersions() throws PortalException;
 }

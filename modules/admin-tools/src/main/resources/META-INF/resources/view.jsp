@@ -2,16 +2,12 @@
 <%@ include file="/init.jsp" %>
 
 <div class="container-fluid-1280">
-	<p>
-		<b><liferay-ui:message key="admintools.caption"/></b>
-	</p>
-
-
-	<portlet:actionURL name="<%=MvcCommandNames.DELETE_UNUSED_DOCUMENTS %>" var="deleteUnusedDocumentsURL">
+	<h1><liferay-ui:message key="admintools.caption"/></h1>
+	<portlet:actionURL name="<%=MvcCommandNames.REMOVE_PREVIOUS_DOCUMENT_VERSIONS %>" var="removePreviousVersionsURL">
 		<portlet:param name="redirect" value="${currentURL}" />
 	</portlet:actionURL>
 
 	<aui:button-row>
-		<aui:button onClick="${deleteUnusedDocumentsURL.toString()}" value="Delete unused documents" />
+		<aui:button onClick="${removePreviousVersionsURL.toString()}" value="Remove previous versions" />
 	</aui:button-row>
 </div>
