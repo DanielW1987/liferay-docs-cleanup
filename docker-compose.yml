@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  db:
+    container_name: liferay70
+    image: postgres:13.3-alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: liferay70
+      PGDATA: /var/lib/postgresql/data/db-files/
+    volumes:
+      - type: volume
+        source: db-volume
+        target: /var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+
+volumes:
+  db-volume:
+    name: liferay-70-db-volume
