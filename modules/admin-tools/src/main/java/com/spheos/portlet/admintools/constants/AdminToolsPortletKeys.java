@@ -5,7 +5,7 @@ package com.spheos.portlet.admintools.constants;
  */
 public class AdminToolsPortletKeys {
 
-	public static final String ADMINTOOLS =
+	public static final String PORTLET_NAME =
 		"com_spheos_portlet_admintools_AdminToolsPortlet";
 
 }

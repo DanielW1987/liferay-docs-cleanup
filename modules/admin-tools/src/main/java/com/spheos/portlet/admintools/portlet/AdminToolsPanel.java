@@ -19,11 +19,11 @@ public class AdminToolsPanel extends BasePanelApp {
 
     @Override
     public String getPortletId() {
-        return AdminToolsPortletKeys.ADMINTOOLS;
+        return AdminToolsPortletKeys.PORTLET_NAME;
     }
 
     @Override
-    @Reference(target = "(javax.portlet.name=" + AdminToolsPortletKeys.ADMINTOOLS + ")", unbind = "-")
+    @Reference(target = "(javax.portlet.name=" + AdminToolsPortletKeys.PORTLET_NAME + ")", unbind = "-")
     public void setPortlet(Portlet portlet) {
         super.setPortlet(portlet);
     }
