@@ -64,10 +64,20 @@ public class DocumentsAndMediaServiceImpl implements DocumentsAndMediaService {
 			String latestVersion = file.getVersion();
 			for (FileVersion fileVersion : results) {
 				if (!fileVersion.getVersion().equals(latestVersion) && !fileVersion.isDraft()) {
-					log.info(String.format("Deleting '%s (%s)'", file.getTitle(), fileVersion.getVersion()));
-					dlAppService.deleteFileVersion(file.getFileEntryId(), fileVersion.getVersion());
+					tryDeleteFileVersion(file, fileVersion);
 				}
 			}
+		}
+	}
+
+	private void tryDeleteFileVersion(FileEntry file, FileVersion fileVersion) {
+		log.info(String.format("Deleting '%s (%s)'", file.getTitle(), fileVersion.getVersion()));
+		try {
+			dlAppService.deleteFileVersion(file.getFileEntryId(), fileVersion.getVersion());
+		}
+		catch (PortalException pe) {
+			String message = String.format("Can't delete file version '%s' (%s)", file.getTitle(), fileVersion.getVersion());
+			log.error(message, pe);
 		}
 	}
 }
