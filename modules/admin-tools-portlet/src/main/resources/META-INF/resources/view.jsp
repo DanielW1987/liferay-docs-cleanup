@@ -8,6 +8,6 @@
 	</portlet:actionURL>
 
 	<aui:button-row>
-		<aui:button onClick="${removePreviousVersionsURL.toString()}" value="Remove previous versions" />
+		<aui:button onClick="${removePreviousVersionsURL.toString()}" value="Remove previous document versions" />
 	</aui:button-row>
 </div>
