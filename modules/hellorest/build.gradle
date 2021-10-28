@@ -1,0 +1,4 @@
+dependencies {
+	compileOnly group: "javax.ws.rs", name: "javax.ws.rs-api"
+	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations"
+}
